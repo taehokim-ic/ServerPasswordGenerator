@@ -1,19 +1,6 @@
 import random
 from openpyxl import load_workbook
 
-# passwords = []
-
-# for i in range(30):
-#     password = random.randint(33, 126)
-#     if not (password in passwords):     
-#         passwords.append(password)
-#     else:
-#         while (password in passwords):
-#             password = random.randint(33, 126)
-#         passwords.append(password)
-
-# password = ""
-
 class Password():
 
     def __init__(self):
@@ -83,18 +70,7 @@ class PasswordList():
 
         return self.passwordList
 
-
-
-
 passwdlist = PasswordList()
 passwdlist.setRows(10)
 passwdlist.setColumns(3)
 print(passwdlist.passwordListGenerator())
-
-
-# for i in range(9):
-#     random.randint(33, 126)
-
-# for i in range(10):
-#     for i in range(3):
-#         password = []
