@@ -6,6 +6,7 @@
 
 ```python
 import random
+from passGen import Password, PasswordList
 from openpyxl import load_workbook
 from openpyxl.styles import Font
 ```
@@ -13,6 +14,8 @@ from openpyxl.styles import Font
 ## How to...
 
 ##### Create a PasswordList object, setting rows and columns, generate PasswordList using passwordListGenerator()
+
+###### xlsxGen.py
 
 ```python
 passwdlist = PasswordList()
@@ -25,6 +28,8 @@ passwdlist.passwordListGenerator()
 
 ```python
 wb = load_workbook('password.xlsx')
+# Alternatively, create workbook
+# wb = Workbook() 
 ws = wb.active
 ft = Font(name='Courier New', size=11)
 ```
@@ -44,6 +49,8 @@ for i in range(passwdlist.rows):
 ## Details on Code
 
 ### 1. Generating Password
+
+###### passGen.py
 
 ##### Within
 
