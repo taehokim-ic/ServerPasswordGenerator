@@ -9,6 +9,7 @@ passwdlist.passwordListGenerator()
 
 
 wb = load_workbook('password.xlsx')
+# wb = Workbook()
 ws = wb.active
 ft = Font(name='Courier New', size=11)
 
