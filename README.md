@@ -1,6 +1,6 @@
 # Server Password Generator
 
-**_Generates or edits xlsx file containing passwords for servers that need regular password change_**
+**_Generates or edits xlsx file containing passwords for servers that require regular password change_**
 
 ## Packages
 
@@ -10,6 +10,7 @@ from openpyxl import load_workbook
 from openpyxl.styles import Font
 ```
 
+## Details on Code
 
 ### 1. Generating Password
 
