@@ -78,3 +78,51 @@ def passwordClear(self):
 
 
 ##### Within
+
+```python
+class PasswordList():
+```
+##### Creates instance
+
+```python
+def __init__(self):
+        
+    self.passwordList = []
+    self.rows = 0        
+    self.columns = 0
+    self.password = Password()
+
+```
+
+
+##### Setter for _rows_ and _columns_
+
+```python
+def setRows(self, row):
+    self.rows = row
+    
+def setColumns(self, column):
+    self.columns = column
+```
+
+##### passwordListGenerator creates a list of passwords lists (row x column)
+```python
+def passwordListGenerator(self):
+        
+    passwords = []
+
+    for i in range(self.rows * self.columns):
+        self.password.passwordGenerator(9)
+        while (self.password.password in passwords):
+            self.password.passwordGenerator(9)
+        passwords.append(self.password.password)
+        self.password.passwordClear()
+        
+    for i in range(self.rows):
+        _ = []
+        for j in range(self.columns):
+            _.append(passwords.pop())
+        self.passwordList.append(_)
+
+    return self.passwordList
+```
