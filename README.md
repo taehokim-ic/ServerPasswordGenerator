@@ -1,4 +1,4 @@
-# Server Password Generator
+# Server Password Generator :page_with_curl:
 
 **_Generates or edits xlsx file containing passwords for servers that require regular password change_**
 
