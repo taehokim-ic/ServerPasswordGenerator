@@ -41,7 +41,6 @@ class PasswordList():
 
     def __init__(self):
         
-        self.passwords = []
         self.passwordList = []
         self.rows = 0
         self.columns = 0
@@ -55,17 +54,19 @@ class PasswordList():
 
     def passwordListGenerator(self):
         
+        passwords = []
+
         for i in range(self.rows * self.columns):
             self.password.passwordGenerator(9)
-            while (self.password.password in self.passwords):
+            while (self.password.password in passwords):
                 self.password.passwordGenerator(9)
-            self.passwords.append(self.password.password)
+            passwords.append(self.password.password)
             self.password.passwordClear()
         
         for i in range(self.rows):
             _ = []
             for j in range(self.columns):
-                _.append(self.passwords.pop())
+                _.append(passwords.pop())
             self.passwordList.append(_)
 
         return self.passwordList
@@ -73,4 +74,4 @@ class PasswordList():
 passwdlist = PasswordList()
 passwdlist.setRows(10)
 passwdlist.setColumns(3)
-print(passwdlist.passwordListGenerator())
+passwdlist.passwordListGenerator()

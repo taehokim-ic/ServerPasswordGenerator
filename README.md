@@ -1,23 +1,20 @@
 # Server Password Generator
 
-**_Generates or edits xlsx file containing passwords for servers that need regular password change_** 
+**_Generates or edits xlsx file containing passwords for servers that need regular password change_**
 
 ### 1. Generating Password
 
-
-
 ##### Within
 
-```python 
+```python
 class Password():
 ```
 
 ##### Initializes password as empty string
 
 ```python
-
 def __init__(self):
-        
+    
     self.password = ""
 ```
 
@@ -34,9 +31,9 @@ def lessThanThree(self, passChr):
         return True
 
     try:
-            
+          
         index = self.password.index(passChr, index)
-        
+      
     except ValueError as e:
         return True
 
@@ -61,10 +58,12 @@ def passwordGenerator(self, length):
 ##### Sets password back to empty string
 
 ```python
-
 def passwordClear(self):
 
     self.password = ""
 ```
 
-### 2. Generating a set of _Passwords_ 
+### 2. Generating a set of _Passwords_
+
+
+##### Within
