@@ -105,7 +105,7 @@ def setColumns(self, column):
     self.columns = column
 ```
 
-##### passwordListGenerator creates a list of passwords lists (row x column)
+##### passwordListGenerator creates a list of password lists (row x column)
 ```python
 def passwordListGenerator(self):
         
