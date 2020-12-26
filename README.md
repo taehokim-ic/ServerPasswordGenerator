@@ -10,6 +10,18 @@ from openpyxl import load_workbook
 from openpyxl.styles import Font
 ```
 
+## Getting Started
+
+##### Create a PasswordList object, setting the row and column
+
+```python
+passwdlist = PasswordList()
+passwdlist.setRows(10)
+passwdlist.setColumns(3)
+passwdlist.passwordListGenerator()
+```
+
+
 ## Details on Code
 
 ### 1. Generating Password
@@ -24,7 +36,7 @@ class Password():
 
 ```python
 def __init__(self):
-    
+  
     self.password = ""
 ```
 
@@ -41,9 +53,9 @@ def lessThanThree(self, passChr):
         return True
 
     try:
-          
+        
         index = self.password.index(passChr, index)
-      
+    
     except ValueError as e:
         return True
 
@@ -77,39 +89,39 @@ def passwordClear(self):
 
 ### 2. Generating a set of _Passwords_
 
-
 ##### Within
 
 ```python
 class PasswordList():
 ```
+
 ##### Creates instance
 
 ```python
 def __init__(self):
-        
+      
     self.passwordList = []
-    self.rows = 0        
+    self.rows = 0      
     self.columns = 0
     self.password = Password()
 
 ```
-
 
 ##### Setter for _rows_ and _columns_
 
 ```python
 def setRows(self, row):
     self.rows = row
-    
+  
 def setColumns(self, column):
     self.columns = column
 ```
 
 ##### passwordListGenerator creates a list of password lists (row x column)
+
 ```python
 def passwordListGenerator(self):
-        
+      
     passwords = []
 
     for i in range(self.rows * self.columns):
@@ -118,7 +130,7 @@ def passwordListGenerator(self):
             self.password.passwordGenerator(9)
         passwords.append(self.password.password)
         self.password.passwordClear()
-        
+      
     for i in range(self.rows):
         _ = []
         for j in range(self.columns):
