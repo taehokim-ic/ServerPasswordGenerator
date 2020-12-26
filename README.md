@@ -2,6 +2,15 @@
 
 **_Generates or edits xlsx file containing passwords for servers that need regular password change_**
 
+## Installation
+
+```python
+import random
+from openpyxl import load_workbook
+from openpyxl.styles import Font
+```
+
+
 ### 1. Generating Password
 
 ##### Within
@@ -40,13 +49,15 @@ def lessThanThree(self, passChr):
     return False
 ```
 
-##### Generates and returns password of given _length_, characters from ***'!'*** to ***'~'*** on ASCII Table
+##### Generates and returns password of given _length_, characters from ***'!'*** to ***'~'*** in ASCII Table
 
 ```python
 def passwordGenerator(self, length):
 
     for i in range(length):
         passChr = chr(random.randint(33, 126))
+        while (i == 0 and passChr == '='): # Solves bug when first character is '='
+            passChr = chr(random.randint(33, 126))
         while not (self.lessThanThree(passChr)):
             passChr = chr(random.randint(33, 126))
         self.password += passChr
