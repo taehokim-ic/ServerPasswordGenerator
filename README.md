@@ -2,7 +2,7 @@
 
 **_Generates or edits xlsx file containing passwords for servers that need regular password change_**
 
-## Installation
+## Packages
 
 ```python
 import random
