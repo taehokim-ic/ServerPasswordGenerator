@@ -39,7 +39,7 @@ for i in range(passwdlist.rows):
         ws[cell] = passwdlist.passwordList[i][j]
 ```
 
-> The following code assigns value to cells A1:C10; change if you wish.
+> The following code assigns value to cells ****_A1:C10_**** ; change if you wish.
 
 ## Details on Code
 
