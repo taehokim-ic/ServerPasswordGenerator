@@ -1,6 +1,16 @@
 # Server Password Generator
 
-**_Generates or edits xlsx file containing passwords for servers that need regular password change_**
+**_Generates or edits xlsx file containing passwords for servers that require regular password change_**
+
+## Packages
+
+```python
+import random
+from openpyxl import load_workbook
+from openpyxl.styles import Font
+```
+
+## Details on Code
 
 ### 1. Generating Password
 
@@ -40,13 +50,15 @@ def lessThanThree(self, passChr):
     return False
 ```
 
-##### Generates and returns password of given _length_, characters from ***'!'*** to ***'~'*** on ASCII Table
+##### Generates and returns password of given _length_, characters from ***'!'*** to ***'~'*** in ASCII Table
 
 ```python
 def passwordGenerator(self, length):
 
     for i in range(length):
         passChr = chr(random.randint(33, 126))
+        while (i == 0 and passChr == '='): # Solves bug when first character is '='
+            passChr = chr(random.randint(33, 126))
         while not (self.lessThanThree(passChr)):
             passChr = chr(random.randint(33, 126))
         self.password += passChr
@@ -67,3 +79,51 @@ def passwordClear(self):
 
 
 ##### Within
+
+```python
+class PasswordList():
+```
+##### Creates instance
+
+```python
+def __init__(self):
+        
+    self.passwordList = []
+    self.rows = 0        
+    self.columns = 0
+    self.password = Password()
+
+```
+
+
+##### Setter for _rows_ and _columns_
+
+```python
+def setRows(self, row):
+    self.rows = row
+    
+def setColumns(self, column):
+    self.columns = column
+```
+
+##### passwordListGenerator creates a list of password lists (row x column)
+```python
+def passwordListGenerator(self):
+        
+    passwords = []
+
+    for i in range(self.rows * self.columns):
+        self.password.passwordGenerator(9)
+        while (self.password.password in passwords):
+            self.password.passwordGenerator(9)
+        passwords.append(self.password.password)
+        self.password.passwordClear()
+        
+    for i in range(self.rows):
+        _ = []
+        for j in range(self.columns):
+            _.append(passwords.pop())
+        self.passwordList.append(_)
+
+    return self.passwordList
+```
