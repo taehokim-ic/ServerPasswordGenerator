@@ -1,5 +1,6 @@
 import random
 from openpyxl import load_workbook
+from openpyxl.styles import Font
 
 class Password():
 
@@ -27,6 +28,8 @@ class Password():
 
         for i in range(length):
             passChr = chr(random.randint(33, 126))
+            while (i == 0 and passChr == '='):
+                passChr = chr(random.randint(33, 126))
             while not (self.lessThanThree(passChr)):
                 passChr = chr(random.randint(33, 126))
             self.password += passChr
@@ -79,11 +82,13 @@ passwdlist.passwordListGenerator()
 
 wb = load_workbook('password.xlsx')
 ws = wb.active
+ft = Font(name='Courier New', size=11)
 
 
 for i in range(passwdlist.rows):
     for j in range(passwdlist.columns):
         cell = chr(65+j) + str(i+1)   
+        ws[cell].font = ft
         ws[cell] = passwdlist.passwordList[i][j]
 
 wb.save('password.xlsx')
