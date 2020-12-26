@@ -12,7 +12,7 @@ from openpyxl.styles import Font
 
 ## How to...
 
-##### Create a PasswordList object, setting rows and columns, generate PasswordList using passwordListGenerator()
+##### Create a PasswordList object, setting rows and columns, generate passwords using passwordListGenerator()
 
 ###### xlsxGen.py
 
