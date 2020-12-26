@@ -6,7 +6,6 @@
 
 ```python
 import random
-from passGen import Password, PasswordList
 from openpyxl import load_workbook
 from openpyxl.styles import Font
 ```
@@ -18,6 +17,8 @@ from openpyxl.styles import Font
 ###### xlsxGen.py
 
 ```python
+from passGen import Password, PasswordList
+
 passwdlist = PasswordList()
 passwdlist.setRows(10)
 passwdlist.setColumns(3)
@@ -79,9 +80,9 @@ def lessThanThree(self, passChr):
         return True
 
     try:
-        
+      
         index = self.password.index(passChr, index)
-    
+  
     except ValueError as e:
         return True
 
@@ -125,9 +126,9 @@ class PasswordList():
 
 ```python
 def __init__(self):
-      
+    
     self.passwordList = []
-    self.rows = 0      
+    self.rows = 0    
     self.columns = 0
     self.password = Password()
 
@@ -147,7 +148,7 @@ def setColumns(self, column):
 
 ```python
 def passwordListGenerator(self):
-      
+    
     passwords = []
 
     for i in range(self.rows * self.columns):
@@ -156,7 +157,7 @@ def passwordListGenerator(self):
             self.password.passwordGenerator(9)
         passwords.append(self.password.password)
         self.password.passwordClear()
-      
+    
     for i in range(self.rows):
         _ = []
         for j in range(self.columns):
