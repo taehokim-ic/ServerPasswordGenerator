@@ -10,9 +10,9 @@ from openpyxl import load_workbook
 from openpyxl.styles import Font
 ```
 
-## Getting Started
+## How to...
 
-##### Create a PasswordList object, setting the row and column
+##### Create a PasswordList object, setting the row and column, generate PasswordList using passwordListGenerator()
 
 ```python
 passwdlist = PasswordList()
@@ -21,6 +21,25 @@ passwdlist.setColumns(3)
 passwdlist.passwordListGenerator()
 ```
 
+##### Loading file, setting font
+
+```python
+wb = load_workbook('password.xlsx')
+ws = wb.active
+ft = Font(name='Courier New', size=11)
+```
+
+##### Setting the values for each cell
+
+```python
+for i in range(passwdlist.rows):
+    for j in range(passwdlist.columns):
+        cell = chr(65+j) + str(i+1)   
+        ws[cell].font = ft
+        ws[cell] = passwdlist.passwordList[i][j]
+```
+
+> The following code assigns value to cells A1:C10; change if you wish.
 
 ## Details on Code
 
