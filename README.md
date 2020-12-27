@@ -8,6 +8,7 @@
 import random
 from openpyxl import load_workbook
 from openpyxl.styles import Font
+# from openpyxl import Workbook
 ```
 
 ## How to...
@@ -80,7 +81,7 @@ def lessThanThree(self, passChr):
         return True
 
     try:
-    
+  
         index = self.password.index(passChr, index)
   
     except ValueError as e:
