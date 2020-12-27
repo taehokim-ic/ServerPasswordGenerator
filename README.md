@@ -1,4 +1,4 @@
-# Server Password Generator :page_with_curl:
+# Server Password Generator  :page_with_curl:
 
 **_Generates or edits xlsx file containing passwords for servers that require regular password change_**
 
@@ -80,7 +80,7 @@ def lessThanThree(self, passChr):
         return True
 
     try:
-      
+    
         index = self.password.index(passChr, index)
   
     except ValueError as e:
@@ -126,9 +126,9 @@ class PasswordList():
 
 ```python
 def __init__(self):
-    
+  
     self.passwordList = []
-    self.rows = 0    
+    self.rows = 0  
     self.columns = 0
     self.password = Password()
 
@@ -148,7 +148,7 @@ def setColumns(self, column):
 
 ```python
 def passwordListGenerator(self):
-    
+  
     passwords = []
 
     for i in range(self.rows * self.columns):
@@ -157,7 +157,7 @@ def passwordListGenerator(self):
             self.password.passwordGenerator(9)
         passwords.append(self.password.password)
         self.password.passwordClear()
-    
+  
     for i in range(self.rows):
         _ = []
         for j in range(self.columns):
