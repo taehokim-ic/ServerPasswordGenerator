@@ -2,15 +2,6 @@
 
 **_Generates or edits xlsx file containing passwords for servers that require regular password change_**
 
-## Packages
-
-```python
-import random
-from openpyxl import load_workbook
-from openpyxl.styles import Font
-# from openpyxl import Workbook
-```
-
 ## How to...
 
 ##### Create a PasswordList object, setting rows and columns, generate passwords using passwordListGenerator()
